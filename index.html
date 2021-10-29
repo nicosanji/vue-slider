@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>VUE-SLIDER</title>
-    <!-- ORDINE: 1)css frame 2)my css 3)cript frame 4)my script(footer) -->
+
+    <!-- Link FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Link Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,36 +16,44 @@
     <link rel="stylesheet" href="style.css">
     <!-- Script Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-
 </head>
 
 <body>
-
-    <main>
-
-        <!-- CONTAINER PRINCIPALE -->
-        <div class="my-container">
-
-            <!-- SX = Sezione che contiene immagine grande e testi -->
-            <div class="img-big-box">
-
-                <!-- Immagine grande -->
-                <img id="img-big-left" alt="">
-
-                <!-- Box che contiene il testo dell'immagine grande -->
-                <div class="text-box">
-
-                    <!-- Titolo -->
-                    <h1 class="text-box-title"></h1>
-
-                    <!-- Sottotitolo -->
-                    <p class="text-box-subtitle"></p>
+    <!-- Container dello slider (ogni elemento è gestito da VueJs) -->
+    <main id="root">
+        <div class="row container p-5 mx-auto" style="height: 500px;">
+            <!-- Img grande (left) -->
+            <div class="col-10 position-relative h-100">
+                <!-- v-for = ciclo + if ternario nell'arrayObjects per applicare la classe -->
+                <!-- element = object / i = suo indice -->
+                <div class="array-objects-container" v-for="(element, i) in arrayObjects"
+                    v-bind:class="i === currentImg ? 'active' : ''">
+                    <!-- Applica la classe active solo se l'indice è corretto, altrimenti "vuoto" -->
+                    <img class="img-big-left" v-bind:src="element.image" v-bind:alt="'img' + (i)">
+                    <!-- Contenitore testo -->
+                    <div class="text-box text-white text-end">
+                        <!-- title dell'elemento -->
+                        <h3>{{ element.title }}</h3>
+                        <!-- text dell'elemento -->
+                        <p>{{ element.text }}</p>
+                    </div>
                 </div>
             </div>
-
-            <!-- DX = Sezione che contiene la lista delle immagini piccole e le frecce -->
-            <div class="imgs-list-box">
-                <!-- Contenuto inserito tramite JS -->
+            <!-- Lista Img piccole (right) -->
+            <div class="col-2 position-relative p-0 h-100">
+                <!-- Stesso ciclo dell'immagine grande (quasi) -->
+                <img class="imgs-list-right" v-bind:src="element.image" v-bind:alt="'img' + (i)"
+                    v-for="element,i in arrayObjects" v-bind:class="i === currentImg ? 'active-img' : ''">
+                <!-- Box delle icone goUp goDown -->
+                <div class="button-box h-100 d-flex flex-column justify-content-between p-2">
+                    <!-- @click = richiama la funzione al click -->
+                    <div class="btn rounded-circle btn-outline-light" @click="goUp()" style="cursor: pointer;">
+                        <i class="fas fa-chevron-up"></i>
+                    </div>
+                    <div class="btn rounded-circle btn-outline-light" @click="goDown()" style="cursor: pointer;">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -53,6 +62,7 @@
         <!-- Script JavaScript -->
         <script src="script.js"></script>
     </footer>
+    
 </body>
 
 </html>

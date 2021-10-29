@@ -1,92 +1,54 @@
-* {
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+/* ** LEFT SIDE ** */
+/* contenitore del ciclo delle immagini grandi */
+.array-objects-container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
 }
 
-/* ---- TAG ---- */
-
-img {
-    width: 100%;
+/* immagine grande */
+.img-big-left {    
     height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-p {
-    font-size: 28px;
-}
-
-/* ---- CLASSI ---- */
-
-/* Container Principale */
-.my-container{
-    width: 1200px;
-    height: 600px;
-    display: flex;
-    margin: 100px auto;
-}
-
-/* Container immagine grande */
-.img-big-box {
-    width: 80%;
-    height: 100% ;
-    position: relative;
-    text-align: right;
-    color: white;
-}
-
-/* Container testo "su" immagine grande */
-.text-box {
+/* contenitore testo */
+.text-box{
     position: absolute;
-    bottom: 50px;
-    right: 50px;
-}
-
-/* Container lista immagini piccole dx */
-.imgs-list-box {
-    position: relative;
-    width: 20%;
-}
-
-/* Immagini piccole nel container dx (da inserire) */
-.img-list-item {
-    height: calc(100%  / 5);
-    background-color: black;
-    filter: brightness(40%);
+    z-index: 2;
+    width: 40%;
+    bottom: 2%;
+    right: 2%;
 }
 
 
-/* Container Icone/Frecce */
-.icons {
-    padding: 0 7px;
-    font-size: 50px;
-    background-color: rgba(211, 211, 211, 0.85);
-    border-radius: 50%;
+/* ** RIGHT SIDE ** */
+/* contenitore del ciclo delle immagini grandi */
+.imgs-list-right{
+    width: 100%;
+    height: calc(100% / 5);
+    filter: brightness(0.5);
+}
+
+.button-box{
     position: absolute;
-    left: 50%;
+    top: 0;
     transform: translateX(-50%);
-    cursor: pointer;
+    left: 50%;
 }
 
-/* Freccia in su */
-.icon-top {
-    top: 10px;
-}
 
-/* Freccia in giù */
-.icon-bottom {
-    bottom: 10px;
+/* ** UTILITIES ** */
+/* utility opacity (immagine da mostrare/ora selezionata) */
+.active{
+    opacity: 1;    
 }
-
-/* Stile/Posizione icone */
-.fa-chevron-up {
-    vertical-align: top;
-}
-.fa-chevron-down {
-    vertical-align: bottom;
-}
-
-/* UTILITY 1 (classe active da "spostare" al click) */
-.active {
-    filter: brightness(100%);
-    border: 5px solid lightgray;
+/* utility brightness (immagine mostrata/ora selezionata) */
+.active-img{
+    filter: brightness(1);
+    border: 2px solid lightgray;
 }
