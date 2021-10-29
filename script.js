@@ -56,5 +56,11 @@ new Vue({
                 this.currentImg--;
             }
         }
-    }
+    },
+    // tipo methods -> timing function
+    mounted() {
+        setInterval(() => {
+            this.goDown()
+        }, 4000);
+    },
 });
