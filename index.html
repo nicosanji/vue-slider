@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VUE-SLIDER</title>
+    <!-- ORDINE: 1)css frame 2)my css 3)cript frame 4)my script(footer) -->
+    <!-- Link Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Link Css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Script Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+
+<body>
+
+    <main>
+
+        <!-- CONTAINER PRINCIPALE -->
+        <div class="my-container">
+
+            <!-- SX = Sezione che contiene immagine grande e testi -->
+            <div class="img-big-box">
+
+                <!-- Immagine grande -->
+                <img id="img-big-left" alt="">
+
+                <!-- Box che contiene il testo dell'immagine grande -->
+                <div class="text-box">
+
+                    <!-- Titolo -->
+                    <h1 class="text-box-title"></h1>
+
+                    <!-- Sottotitolo -->
+                    <p class="text-box-subtitle"></p>
+                </div>
+            </div>
+
+            <!-- DX = Sezione che contiene la lista delle immagini piccole e le frecce -->
+            <div class="imgs-list-box">
+                <!-- Contenuto inserito tramite JS -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Script JavaScript -->
+        <script src="script.js"></script>
+    </footer>
+</body>
+
+</html>
