@@ -37,6 +37,7 @@ new Vue({
         ],
         // "setto" la prima img a 0
         currentImg: 0,
+        timer: null
     },
     // methods: -> Functions
     methods: {
@@ -55,12 +56,22 @@ new Vue({
             } else {
                 this.currentImg--;
             }
+        },
+        // function -> blocca il cambio automatico dell'img
+        onMouseOver() {
+            clearInterval(this.timer)
+        },
+        // function -> sblocca il cambio automatico dell'img
+        onMouseOut() {
+            this.timer = setInterval(() => {
+                this.goDown()
+            }, 3000);
         }
     },
     // tipo methods -> timing function
     mounted() {
-        setInterval(() => {
+        this.timer = setInterval(() => {
             this.goDown()
-        }, 4000);
+        }, 3000);
     },
 });

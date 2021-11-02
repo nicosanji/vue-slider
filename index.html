@@ -40,7 +40,8 @@
                 </div>
             </div>
             <!-- Lista Img piccole (right) -->
-            <div tabindex="0" class="col-2 position-relative p-0 h-100" @keyup.up="goUp" @keyup.down="goDown">
+            <div tabindex="0" class="col-2 position-relative p-0 h-100" @keyup.up="goUp" @keyup.down="goDown"
+                @mouseover="onMouseOver" @mouseout="onMouseOut">
                 <!-- Stesso ciclo dell'immagine grande -->
                 <img class="imgs-list-right" v-bind:src="element.image" v-bind:alt="'img' + (i)"
                     v-for="(element,i) in arrayObjects" v-bind:class="i === currentImg ? 'active-img' : ''">
