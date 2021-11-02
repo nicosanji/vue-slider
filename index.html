@@ -40,17 +40,17 @@
                 </div>
             </div>
             <!-- Lista Img piccole (right) -->
-            <div class="col-2 position-relative p-0 h-100">
-                <!-- Stesso ciclo dell'immagine grande (quasi) -->
+            <div tabindex="0" class="col-2 position-relative p-0 h-100" @keyup.up="goUp" @keyup.down="goDown">
+                <!-- Stesso ciclo dell'immagine grande -->
                 <img class="imgs-list-right" v-bind:src="element.image" v-bind:alt="'img' + (i)"
-                    v-for="element,i in arrayObjects" v-bind:class="i === currentImg ? 'active-img' : ''">
+                    v-for="(element,i) in arrayObjects" v-bind:class="i === currentImg ? 'active-img' : ''">
                 <!-- Box delle icone goUp goDown -->
                 <div class="button-box h-100 d-flex flex-column justify-content-between p-2">
                     <!-- @click = richiama la funzione al click -->
-                    <div class="btn rounded-circle btn-outline-light" @click="goUp()" style="cursor: pointer;">
+                    <div class="btn rounded-circle btn-outline-light" @click="goUp" style="cursor: pointer;">
                         <i class="fas fa-chevron-up"></i>
                     </div>
-                    <div class="btn rounded-circle btn-outline-light" @click="goDown()" style="cursor: pointer;">
+                    <div class="btn rounded-circle btn-outline-light" @click="goDown" style="cursor: pointer;">
                         <i class="fas fa-chevron-down"></i>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
         <!-- Script JavaScript -->
         <script src="script.js"></script>
     </footer>
-    
+
 </body>
 
 </html>
